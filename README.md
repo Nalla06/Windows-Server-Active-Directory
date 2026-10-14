@@ -21,6 +21,32 @@ The objective is to practise common IT administration tasks, verify configuratio
 - **Internal lab network:** `192.168.x.x/24`
 - **PowerShell:** Active Directory administration and automation
 
+![Windows Server Active Directory Lab Architecture](Screenshot-01.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-02.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-03.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-04.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-05.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-06.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-07.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-08.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-09.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-10.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-11.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-12.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-13.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-14.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-15.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-16.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-17.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-18.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-19.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-20.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-21.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-22.png)
+![Windows Server Active Directory Lab Architecture](Screenshot-23.png)
+
+
+
 ## Work Completed
 
 - Created the virtual lab environment in VMware.
