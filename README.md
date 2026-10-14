@@ -1,8 +1,5 @@
 # Windows Server & Active Directory Administration Lab
 
-
-![Windows Server Active Directory Lab Architecture](Project-Archtecture.png)
-
 ## Project Overview
 
 This project demonstrates hands-on Windows Server administration in a simulated company environment called **TechOffice GmbH**.
@@ -10,6 +7,8 @@ This project demonstrates hands-on Windows Server administration in a simulated 
 The lab focuses on Windows Server, Active Directory Domain Services (AD DS), DNS, user and organisational unit (OU) management, and PowerShell automation.
 
 The objective is to practise common IT administration tasks, verify configurations, troubleshoot problems, and document the procedures in a reusable technical runbook.
+
+![Windows Server Active Directory Lab Architecture](Project-Archtecture.png)
 
 ## Lab Environment
 
