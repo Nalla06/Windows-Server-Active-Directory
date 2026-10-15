@@ -45,15 +45,18 @@ Step 1: Prepare the virtualisation environment
 VMware Workstation Pro was used to create and manage the virtual machines required for the lab.
 Create a dedicated virtual network for communication between the Windows Server and client virtual machines.
 
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-01.png)
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-02.png)
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-03.png)
+![Windows Server Active Directory Lab Architecture](images/Screenshot-01.png)
+
+![Windows Server Active Directory Lab Architecture](images/Screenshot-02.png)
+
+![Windows Server Active Directory Lab Architecture](images/Screenshot-03.png)
 
 Step 2: Configure the virtual network
 
 A host-only virtual network (VMnet1) was used for communication between the lab virtual machines.
 
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-05.png)
+
+![Windows Server Active Directory Lab Architecture](images/Screenshot-05.png)
 
 The network subnet was configured as 192.168.10.0/24.
 
@@ -62,13 +65,16 @@ Step 3: Prepare the Windows Server virtual machine
 The Windows Server virtual machine was prepared for use as the central server in the lab.
 
 The server was subsequently named SRV-DC01.
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-08.png)
+
+![Windows Server Active Directory Lab Architecture](images/Screenshot-08.png)
 
 Step 4: Configure the server network
 
 A static IPv4 address was configured for the server so that its address would remain predictable for DNS and Active Directory services.
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-06.png)
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-07.png)
+
+![Windows Server Active Directory Lab Architecture](images/Screenshot-06.png)
+
+![Windows Server Active Directory Lab Architecture](images/Screenshot-07.png)
 
 Step 5: Verify the network configuration
 
@@ -76,7 +82,7 @@ The server's IP configuration was checked to confirm the IPv4 address, subnet ma
 
 Useful verification commands include:
 
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-09.png)
+![Windows Server Active Directory Lab Architecture](images/Screenshot-09.png)
 
 ipconfig /all
 hostname
