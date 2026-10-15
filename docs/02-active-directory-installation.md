@@ -70,18 +70,12 @@ Installing the role adds the AD DS binaries and management capabilities to the s
 ##### Step 5: Start domain controller promotion
 
 After the role installation, the server was configured for domain controller promotion using the post-deployment option in Server Manager.
-
 Promotion configures the server to host Active Directory Domain Services for the domain.
-
 
 ##### Step 6: Configure the deployment
 
 The new forest deployment option was selected to create a new Active Directory domain environment.
-
-The root domain name for this lab was entered as:
-
-`ad.techoffice.test`
-
+The root domain name for this lab was entered as:   `ad.techoffice.test`
 A new forest is appropriate for a standalone lab that is not joining an existing Active Directory forest.
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-13.png)
@@ -91,7 +85,6 @@ A new forest is appropriate for a standalone lab that is not joining an existing
 The domain controller options were reviewed before continuing.
 
 These options include domain controller capabilities, the Directory Services Restore Mode (DSRM) password, and other settings presented by the wizard.
-
 The DSRM password is used for specific directory recovery and maintenance scenarios. It should be stored securely and must not be included in public documentation or screenshots.
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-15.png)
@@ -99,13 +92,11 @@ The DSRM password is used for specific directory recovery and maintenance scenar
 ##### Step 8: Review DNS and additional configuration
 
 The wizard's DNS and additional configuration pages were reviewed as part of the promotion process.
-
 DNS integration is important because Active Directory clients need to locate domain controllers through service records and other DNS information.
 
 ##### Step 9: Review prerequisites and promote the server
 
 The configuration was reviewed and the prerequisite checks were allowed to run.
-
 After the checks were passed, the server promotion was started. The process configures the server as a domain controller and may restart the server when completed.
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-16.png)
@@ -113,7 +104,6 @@ After the checks were passed, the server promotion was started. The process conf
 ##### Step 10: Sign in to the domain environment
 
 After promotion and restart, the sign-in screen was checked to confirm that the server was operating in the domain environment.
-
 The domain controller can be used to administer the domain through tools such as Active Directory Users and Computers.
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-17.png)
@@ -133,7 +123,6 @@ Expected hostname:
 ```text
 SRV-DC01
 ```
-
 #### Check the domain membership
 
 Run:
@@ -141,13 +130,11 @@ Run:
 ```powershell
 (Get-CimInstance Win32_ComputerSystem).Domain
 ```
-
 Expected domain:
 
 ```text
 ad.techoffice.test
 ```
-
 #### Check the Active Directory domain
 
 If the Active Directory PowerShell module is available, run:
@@ -155,9 +142,7 @@ If the Active Directory PowerShell module is available, run:
 ```powershell
 Get-ADDomain
 ```
-
 Review the returned domain information to confirm that the expected domain is available.
-
 #### Check DNS service records
 
 Run:
@@ -165,9 +150,7 @@ Run:
 ```powershell
 nslookup -type=SRV _ldap._tcp.dc._msdcs.ad.techoffice.test
 ```
-
 The result should contain the DNS service records used to locate domain controllers. If the query fails, check the DNS server configuration and the domain controller's DNS registration.
-
 
 #### 6. Completion Criteria
 
