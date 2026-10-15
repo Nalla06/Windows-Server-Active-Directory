@@ -4,7 +4,7 @@
 
 This project demonstrates hands-on Windows Server administration in a simulated company environment called **TechOffice GmbH**.
 
-The lab focuses on Windows Server, Active Directory Domain Services (AD DS), DNS, user and organisational unit (OU) management, and PowerShell automation.
+The lab focuses on Windows Server, Active Directory Domain Services (AD DS), DNS, Organizational Unit (OU) management, user administration, and PowerShell automation.
 
 The objective is to practise common IT administration tasks, verify configurations, troubleshoot problems, and document the procedures in a reusable technical runbook.
 
@@ -12,64 +12,113 @@ The objective is to practise common IT administration tasks, verify configuratio
 
 ## Lab Environment
 
-- **Virtualisation:** VMware Workstation Pro 17
-- **Server operating system:** Windows Server 2025
-- **Client operating system:** Windows 11
-- **Active Directory domain:** `ad.techoffice.test`
-- **Domain controller:** `SRV-DC01`
-- **Domain controller IP:** `192.168.x.x`
-- **Internal lab network:** `192.168.x.x/24`
-- **PowerShell:** Active Directory administration and automation
-
-![Windows Server Active Directory Lab Architecture](Screenshot-01.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-02.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-03.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-04.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-05.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-06.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-07.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-08.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-09.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-10.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-11.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-12.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-13.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-14.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-15.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-16.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-17.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-18.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-19.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-20.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-21.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-22.png)
-![Windows Server Active Directory Lab Architecture](Screenshot-23.png)
-
-
+| Component | Configuration |
+|---|---|
+| Virtualisation platform | VMware Workstation Pro 17.6.2 |
+| Host operating system | Windows 11 |
+| Server operating system | Windows Server 2025 |
+| Client operating system | Windows 11 |
+| Domain controller | `SRV-DC01` |
+| Domain controller IP address | `192.168.x.x` |
+| Internal lab network | `192.168.x.0/24` |
+| Virtual network | VMware host-only network (VMnet1) |
+| Active Directory domain | `ad.techoffice.test` |
+| Administration tools | Server Manager, ADUC, PowerShell |
 
 ## Work Completed
 
-- Created the virtual lab environment in VMware.
-- Configured the server's static IP address and DNS settings.
-- Installed Active Directory Domain Services and promoted the server to a domain controller.
-- Created a company OU structure for users, computers, groups, and servers.
-- Created initial test user accounts.
+### 1. VMware Lab Setup and Network Configuration
+
+- Created the virtual lab environment using VMware Workstation.
+- Configured the host-only virtual network for the lab.
+- Configured the Windows Server hostname and static IPv4 address.
+- Checked the server's network and DNS settings.
+
+### 2. Active Directory Domain Services
+
+- Installed the Active Directory Domain Services role.
+- Promoted the server to a domain controller.
+- Created the Active Directory domain `ad.techoffice.test`.
+- Reviewed the domain controller and DNS configuration.
+
+### 3. Organizational Units and User Management
+
+- Created the `Company` Organizational Unit.
+- Created the `Users`, `Computers`, `Groups`, and `Servers` child OUs.
+- Created an initial user account manually using Active Directory Users and Computers.
+- Organised directory objects within the lab structure.
+
+### 4. PowerShell User Provisioning
+
 - Prepared a CSV file containing 50 fictional employee records.
-- Used PowerShell to automate the creation of missing Active Directory user accounts.
-- Began validating the resulting accounts.
+- Developed a PowerShell script to automate individual user creation.
+- Used a separate PowerShell script to process employee records in bulk.
+- Implemented checks to skip accounts that already existed.
+- Generated a provisioning results report.
+- Began validating the resulting Active Directory accounts.
+
+## Documentation and Runbooks
+
+The `docs` directory contains detailed procedures, technical explanations, screenshot evidence, verification commands, and troubleshooting notes.
+
+| Document | Description |
+|---|---|
+| [Part 1 – VMware Lab Setup](docs/01-vmware-lab-setup.md) | Virtualisation, network design, and initial server configuration |
+| [Part 2 – Active Directory Installation](docs/02-active-directory-installation.md) | AD DS role installation and domain controller promotion |
+| [Part 3 – OU and User Management](docs/03-ou-and-user-management.md) | OU structure and manual user administration |
+| [Part 4 – PowerShell User Provisioning](docs/04-powershell-user-provisioning.md) | Single-user automation and bulk provisioning from CSV |
+
+## Repository Structure
+
+```text
+Windows-Server-Active-Directory/
+├── README.md
+├── Project-Archtecture.png
+├── Images/
+├── docs/
+│   ├── 01-vmware-lab-setup.md
+│   ├── 02-active-directory-installation.md
+│   ├── 03-ou-and-user-management.md
+│   ├── 04-powershell-user-provisioning.md
+│   ├── 05-security-groups.md
+│   ├── 06-domain-join.md
+│   ├── 07-group-policy.md
+│   ├── 08-file-server-permissions.md
+│   ├── 09-dns-dhcp.md
+│   ├── 10-monitoring-troubleshooting.md
+│   ├── 11-backup-recovery.md
+│   └── 12-powershell-hybrid-concepts.md
+│
+└── scripts/
+    ├── New-ADUser.ps1
+    ├── Import-ADUsersFromCsv.ps1
+    └── ...
+```
+
+*Note: The script filenames above are examples. Keep the actual filenames in your repository and update this structure to match them. The `Images` folder should contain your existing screenshots.*
 
 ## Planned Work
 
-- Verify user attributes and account counts.
+The following tasks are planned for future lab development:
+
+- Complete verification of user attributes and account counts.
 - Create department security groups and configure group membership.
-- Join the Windows 11 client to the domain.
-- Configure and test Group Policy.
+- Join the Windows 11 client to the Active Directory domain.
+- Configure and test Group Policy Objects (GPOs).
 - Configure file shares and NTFS permissions.
-- Practise DNS, DHCP, backup, event-log analysis, and troubleshooting.
-- Document scripts, test results, and lessons learned.
+- Practise DNS and DHCP administration.
+- Practise backup and recovery procedures.
+- Analyse Windows event logs and troubleshoot common infrastructure problems.
+- Expand PowerShell automation and document test results.
 
-## Documentation and Evidence
+## Security and Lab Notes
 
-Detailed setup instructions, PowerShell scripts, architecture diagrams, verification results, and troubleshooting notes will be added as the lab progresses.
+- The lab uses fictional company and employee data.
+- Passwords and other credentials must not be committed to the public repository.
+- Verification results should reflect the actual state of the lab.
+- Planned tasks are not presented as completed until they have been configured and tested.
+- Screenshots support the documentation; the actual PowerShell scripts are maintained as separate files.
 
-**Note:** This is a learning lab using fictional company data. Features listed under planned work are not represented as completed until they have been configured and tested.
+## Project Goal
+
+This project is intended to demonstrate practical knowledge of Windows Server administration, Active Directory, basic DNS concepts, structured user management, PowerShell automation, troubleshooting, and technical documentation.
