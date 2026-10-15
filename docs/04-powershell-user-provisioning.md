@@ -1,6 +1,6 @@
 # PowerShell Active Directory User Provisioning
 
-## 1. Objective
+#### 1. Objective
 
 The objective of this stage was to automate Active Directory user management using PowerShell.
 
@@ -11,7 +11,7 @@ Two automation scenarios were implemented in the TechOffice GmbH lab:
 
 This stage builds on the manual user creation performed in the previous stage and demonstrates how PowerShell can reduce repetitive administrative work.
 
-## 2. Lab Environment
+#### 2. Lab Environment
 
 | Component | Configuration |
 |---|---|
@@ -24,15 +24,17 @@ This stage builds on the manual user creation performed in the previous stage an
 | Bulk input file | TechOffice-Employees.csv |
 | CSV records | 50 employee records |
 
-## 3. Overview of the Automation
+### 3. Overview of the Automation
 
-### 3.1 Manual user creation
+#### 3.1 Manual user creation
 
 An initial user account was created through Active Directory Users and Computers (ADUC).
 
 This provided a reference for understanding the account properties and directory structure before automating the process.
 
-### 3.2 Single-user PowerShell automation
+![Windows Server Active Directory Lab Architecture](../Images/Screenshot-24.png)
+
+#### 3.2 Single-user PowerShell automation
 
 A PowerShell script was used to create an individual Active Directory user.
 
@@ -40,7 +42,7 @@ Automating the process helps make account creation repeatable and reduces the nu
 
 
 
-### 3.3 Bulk user provisioning
+#### 3.3 Bulk user provisioning
 
 A second PowerShell script processed employee records from `TechOffice-Employees.csv`.
 
@@ -48,9 +50,9 @@ The script checked whether each account already existed, skipped existing accoun
 
 This approach helps prevent duplicate account creation when processing an employee list.
 
-## 4. Single-User Automation
+### 4. Single-User Automation
 
-### Step 1: Prepare the PowerShell script
+#### Step 1: Prepare the PowerShell script
 
 A PowerShell script was prepared to automate the creation of an individual Active Directory user.
 
@@ -60,13 +62,13 @@ The script uses the Active Directory PowerShell module to create the account and
 
 **Script file:** Link to the actual `.ps1` file in the repository.
 
-### Step 2: Execute the script
+#### Step 2: Execute the script
 
 The script was executed in the lab environment.
 
 The execution output was checked for errors so that the account creation process could be evaluated.
 
-### Step 3: Verify the created user
+#### Step 3: Verify the created user
 
 The resulting account was checked in Active Directory Users and Computers or through PowerShell.
 
@@ -76,11 +78,11 @@ For example:
 Get-ADUser -Identity "Markus Schneider" |
     Select-Object Name, SamAccountName, Enabled
 ```
-![Windows Server Active Directory Lab Architecture](Images/Screenshot-23.png)
+![Windows Server Active Directory Lab Architecture](../Images/Screenshot-23.png)
 
-## 5. Bulk User Provisioning from CSV
+### 5. Bulk User Provisioning from CSV
 
-### Step 1: Prepare the employee CSV file
+#### Step 1: Prepare the employee CSV file
 
 The file `TechOffice-Employees.csv` was prepared with 50 fictional employee records.
 
@@ -101,7 +103,7 @@ The CSV format allows employee information to be processed consistently without 
 
 **Screenshot evidence:** Insert the screenshot showing the CSV file and its column headings.
 
-### Step 2: Prepare the bulk provisioning script
+#### Step 2: Prepare the bulk provisioning script
 
 A PowerShell script was created to import the employee records and process them automatically.
 
@@ -126,7 +128,7 @@ The script was designed to:
 
 **Script file:** Link to the actual bulk provisioning `.ps1` file in the repository.
 
-### Step 3: Execute the bulk provisioning script
+#### Step 3: Execute the bulk provisioning script
 
 The bulk provisioning script was executed on the domain controller.
 
@@ -134,7 +136,7 @@ The script processed the employee records and reported whether accounts already 
 
 **Screenshot evidence:** Insert the screenshot showing the script execution and its output.
 
-### Step 4: Handle existing accounts
+#### Step 4: Handle existing accounts
 
 The script checked for existing user accounts before creating new ones.
 
@@ -144,7 +146,7 @@ Skipping existing accounts helps avoid duplicate account creation. However, it a
 
 **Screenshot evidence:** Insert the output showing existing accounts being skipped, if available.
 
-### Step 5: Generate the provisioning results report
+#### Step 5: Generate the provisioning results report
 
 The script exported its provisioning results to:
 
@@ -158,11 +160,11 @@ The report can be reviewed to distinguish accounts that were created from accoun
 
 **Screenshot evidence:** Insert the screenshot showing the results CSV, if available.
 
-## 6. Verification
+### 6. Verification
 
 Successful script execution alone does not prove that every account was created correctly. The resulting Active Directory objects should also be checked.
 
-### Check the number of users in the target OU
+#### Check the number of users in the target OU
 
 ```powershell
 Get-ADUser -Filter * `
@@ -172,7 +174,7 @@ Get-ADUser -Filter * `
 
 This command counts the user accounts in the target OU.
 
-### List the user accounts
+#### List the user accounts
 
 ```powershell
 Get-ADUser -Filter * `
@@ -182,7 +184,7 @@ Get-ADUser -Filter * `
 
 This helps confirm that the accounts exist and shows whether they are enabled.
 
-### Review the provisioning results
+#### Review the provisioning results
 
 Open `C:\Scripts\Provisioning-Results.csv` and review the reported outcomes.
 
@@ -190,7 +192,7 @@ Compare the report with the original CSV and the accounts already present in Act
 
 **Important:** Record the actual verified counts and results. Do not assume that every CSV record resulted in a newly created account.
 
-## 7. Understanding the Results
+### 7. Understanding the Results
 
 The bulk CSV contained 50 employee records. In the earlier account check, four usernames already existed and 46 were identified as not yet created.
 
@@ -198,29 +200,29 @@ If the input file and directory state remained unchanged, the expected bulk oper
 
 The final number of users in the OU may be different if additional accounts were created manually or if the directory changed afterward. The count should therefore be confirmed using the verification commands.
 
-## 8. Technical Explanation
+### 8. Technical Explanation
 
 ### Why use PowerShell for user provisioning?
 
 PowerShell allows administrators to automate repetitive tasks, process structured data, and apply consistent account settings.
 
-### Why use a CSV file?
+#### Why use a CSV file?
 
 CSV files provide a simple way to import structured employee information from spreadsheets or other systems.
 
-### Why check for existing accounts?
+#### Why check for existing accounts?
 
 A pre-creation check helps prevent duplicate usernames and makes scripts safer to run when some accounts already exist.
 
-### Why export a results report?
+#### Why export a results report?
 
 A results report supports troubleshooting, auditing, and reconciliation between the source employee list and the directory.
 
-### Why separate scripts from documentation?
+#### Why separate scripts from documentation?
 
 Keeping `.ps1` files in the repository allows reviewers to inspect the actual implementation. The Markdown document explains the purpose, execution process, and verification without requiring readers to extract code from screenshots.
 
-## 9. Comparison: Manual and Automated Provisioning
+### 9. Comparison: Manual and Automated Provisioning
 
 | Method | Advantages | Considerations |
 |---|---|---|
@@ -228,7 +230,7 @@ Keeping `.ps1` files in the repository allows reviewers to inspect the actual im
 | PowerShell single-user script | Repeatable and faster for individual account creation | Requires correct parameters and error handling |
 | PowerShell bulk CSV script | Processes many records consistently and generates a report | Requires valid input data, duplicate checks, and result verification |
 
-## 10. Completion Criteria
+### 10. Completion Criteria
 
 This stage is complete when:
 
