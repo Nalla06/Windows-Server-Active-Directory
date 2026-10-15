@@ -210,4 +210,5 @@ This stage is complete when:
 - The resulting user accounts have been checked in Active Directory.
 - The provisioning report has been reviewed.
 - The scripts and relevant documentation are stored in the project repository.
+
 The next stage can build on this foundation by creating security groups, applying Group Policy, and configuring file-share permissions.

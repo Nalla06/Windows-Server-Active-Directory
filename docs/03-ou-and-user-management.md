@@ -113,4 +113,5 @@ This stage is complete when:
 - The initial user accounts have been created in the intended location.
 - The structure can be viewed in Active Directory Users and Computers.
 - The directory structure can be verified using PowerShell.
+
 The next stage demonstrates bulk user provisioning using PowerShell and a CSV file.
