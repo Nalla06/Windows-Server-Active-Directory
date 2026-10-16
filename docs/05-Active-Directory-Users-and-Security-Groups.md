@@ -202,9 +202,10 @@ This confirmed that the lab had progressed beyond creating user accounts on the 
 
 This section records the issues encountered during the lab, their technical meaning, the troubleshooting approach, and the outcome.
 
-#### Case 1 — Windows 11 could not recognise or locate the domain
+###### Case 1 — Windows 11 could not recognise or locate the domain
 
 **Observed problem**
+
 During the domain-joining process, Windows 11 had difficulty recognising or locating `ad.techoffice.test`.
 
 **Technical explanation**
@@ -214,31 +215,45 @@ If the client queries an unsuitable DNS server, the internal domain may not reso
 Other possible causes include incorrect IP settings, a mismatch between VMware virtual networks, or a domain-controller service problem.
 
 **Troubleshooting approach**
+
 The lab network configuration was reviewed, and the client's DNS configuration was corrected to use the domain controller at `192.168.10.10`.
 
 **Resolution**
+
 After the DNS configuration was corrected, the client successfully located the domain controller and the domain join was completed.
 
 **Learning outcome**
+
 DNS is essential for Active Directory domain discovery. Knowing the domain name is not sufficient; the client must be able to resolve and locate the services required for domain membership.
+
 ---
 
-#### Case 2 — Verifying domain-controller discovery
+###### Case 2 — Verifying domain-controller discovery
 
 **Observed problem**
+
 After correcting DNS, domain-controller discovery needed to be verified before proceeding.
+
 **Troubleshooting approach**
+
 The Windows `nltest` utility was used to request discovery of a domain controller for `ad.techoffice.test`.
+
 **Result**
+
 The discovery test succeeded.
+
 **Resolution**
+
 This provided evidence that Windows 11 could locate a domain controller for the specified domain.
+
 **Learning outcome**
+
 Troubleshooting should use verification checkpoints. A successful domain-controller discovery test helps separate a domain-discovery problem from a later authentication problem.
 The discovery test does not prove that every Active Directory service is healthy, but it is a useful diagnostic step.
+
 ---
 
-#### Case 3 — Julia Schulz was repeatedly asked to change her password
+###### Case 3 — Julia Schulz was repeatedly asked to change her password
 
 **Observed problem**
 
@@ -246,50 +261,69 @@ The discovery test does not prove that every Active Directory service is healthy
 
 The domain account `julia.schulz` was configured to require a password change at the next sign-in.
 The sign-in process allowed the temporary-password and new-password steps, but the password-change requirement repeatedly appeared.
+
 **Investigation**
+
 The account was checked on the domain controller. The account was enabled and was not locked out. The `pwdLastSet` value indicated that a password change was required.
 The domain password policy was also reviewed. At the time of the check, the minimum password length was seven characters, password complexity was enabled, password history was set to 24 passwords, and the lockout threshold was zero.
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-37.png)
 
 **Action taken**
+
 The account password was reset on the domain controller, and the setting requiring a password change at the next logon was disabled for the lab account.
+
 **Result**
+
 Julia subsequently signed in successfully to the Windows 11 client using her domain credentials.
+
 **Important limitation**
+
 This was a workaround that enabled the lab to continue. The original password-change workflow was not fully diagnosed, so the root cause remains unresolved.
 The account's temporary password should be replaced with an individual, suitable password before further testing or continued use.
+
 **Learning outcome**
+
 DNS discovery and user authentication are separate stages. A client can successfully locate the domain controller and still encounter an account, password, or authentication issue.
+
 ---
 
-#### Case 4 — Two users were missing from their expected department groups
+
+
+###### Case 4 — Two users were missing from their expected department groups
 
 **Observed problem**
+
 The department-to-group audit identified two users who were not members of their expected department security groups.
+
 **Decision**
+
 Both users were intentionally left unassigned to preserve a test scenario for future access-control validation.
 **Current status**
+
 The missing memberships are intentional and should not be treated as completed department-group assignments.
+
 **Next test**
+
 When department folders and permissions are configured, test access using these two accounts and compare the results with users who belong to the expected groups.
+
 **Learning outcome**
+
 User attributes, group membership, and effective resource permissions are different concepts. All three must be considered when investigating access-control behaviour.
 
 ### 5.9 Security and Access-Control Concept
 
 The lab establishes the foundation for department-based access control.
-
 The intended design is to grant permissions to department security groups and manage employee access through membership.
 
 For example:
 
 - Members of `GG-IT` may be granted access to an IT-specific folder.
 - Members of `GG-HR` may be granted access to an HR-specific folder.
+
 - Users who are not members of the relevant group can be tested against the same folder to verify the configured access restrictions.
 
 The actual permissions will be configured and validated in a later part of the project.
-
 A group name or membership alone does not prove that a user has or lacks access. Resource permissions and effective access must be tested.
 
 ## 5.10 Verification Summary
@@ -324,9 +358,7 @@ This part provided practical experience with:
 
 ## 5.12 Conclusion
 
-Part 5 established the initial identity-management foundation for the TechOffice GmbH lab.
-
-Department user accounts and Global Security groups were created and reviewed. The Windows 11 client was successfully joined to the domain after troubleshooting DNS and domain-controller discovery. A domain user was able to sign in after a separate password-change workaround.
+This part established the Active Directory user and security group structure for the TechOffice GmbH lab environment. Department-based security groups were created, user attributes and group memberships were reviewed, and a Windows 11 client was successfully joined to the domain. Domain user sign-in was also tested, and troubleshooting steps were documented.
 
 Two users were intentionally left outside their expected department security groups to support future access-control tests.
 
