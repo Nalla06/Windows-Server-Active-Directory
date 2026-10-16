@@ -1,5 +1,7 @@
 # Windows Server & Active Directory Administration Lab
 
+![Windows Server Active Directory Lab Architecture](Project-Archtecture.png)
+
 ## Project Overview
 
 This project demonstrates hands-on Windows Server administration in a simulated company environment called **TechOffice GmbH**.
@@ -8,7 +10,6 @@ The lab focuses on Windows Server, Active Directory Domain Services (AD DS), DNS
 
 The objective is to practise common IT administration tasks, verify configurations, troubleshoot problems, and document the procedures in a reusable technical runbook.
 
-![Windows Server Active Directory Lab Architecture](Project-Archtecture.png)
 
 ## Lab Environment
 
@@ -56,6 +57,30 @@ The objective is to practise common IT administration tasks, verify configuratio
 - Implemented checks to skip accounts that already existed.
 - Generated a provisioning results report.
 - Began validating the resulting Active Directory accounts.
+ 
+### 5. Active Directory Users, Security Groups & Windows 11 Domain Join
+ 
+- Created and organised Active Directory user accounts.
+- Created department-based Global Security groups.
+- Audited user department attributes and group memberships.
+- Intentionally left two users unassigned to their expected security groups for future access-control testing.
+- Configured client DNS to locate the domain controller.
+- Troubleshot DNS resolution and domain-controller discovery.
+- Joined the Windows 11 client to the Active Directory domain.
+- Tested domain-user sign-in and documented a password-change workaround.
+- Recorded troubleshooting cases, verification results, and lessons learned.
+
+### Part 6 — File Server and Access Permissions
+
+- Created and shared the C:\Marketing folder on Windows Server 2025.
+- Configured NTFS permissions for the GG-Marketing security group.
+- Configured SMB share permissions for department-based access.
+- Tested network file access from the Windows 11 domain client.
+- Troubleshot read-only access and corrected share permissions to allow Marketing users to create files.
+- Verified that a Marketing user could create a new file.
+- Tested restricted write access using Julia Schulz's IT account.
+- Documented permission inheritance, troubleshooting steps, and access-control test results.
+
 
 ## Documentation and Runbooks
 
@@ -67,6 +92,8 @@ The `docs` directory contains detailed procedures, technical explanations, scree
 | [Part 2 – Active Directory Installation](docs/02-active-directory-installation.md) | AD DS role installation and domain controller promotion |
 | [Part 3 – OU and User Management](docs/03-ou-and-user-management.md) | OU structure and manual user administration |
 | [Part 4 – PowerShell User Provisioning](docs/04-powershell-user-provisioning.md) | Single-user automation and bulk provisioning from CSV |
+| [Part 5 – Active Directory Users and Security Groups](docs/Part-5-Active-Directory-Users-and-Security-Groups.md) | Department-based security groups, user membership audits, Windows 11 domain join, and domain sign-in troubleshooting |
+| [Part 6 – File Server and Access Permissions](docs/Part-6-File-Server-and-Access-Permissions.md) | NTFS and SMB share permissions, department-based file access, access-control testing, and troubleshooting |
 
 ## Repository Structure
 
@@ -80,8 +107,8 @@ Windows-Server-Active-Directory/
 │   ├── 02-active-directory-installation.md
 │   ├── 03-ou-and-user-management.md
 │   ├── 04-powershell-user-provisioning.md
-│   ├── 05-security-groups.md
-│   ├── 06-domain-join.md
+│   ├── 05-Active Directory Users, Security Groups and Windows 11 Domain Join.md
+│   ├── 06-File Server and Access Permissions.md
 │   ├── 07-group-policy.md
 │   ├── 08-file-server-permissions.md
 │   ├── 09-dns-dhcp.md

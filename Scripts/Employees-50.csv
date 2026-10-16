@@ -1,0 +1,56 @@
+$Departments = @(
+    @{ Name = "Management"; Count = 3; Titles = @("Managing Director", "Operations Manager", "Executive Assistant"); Office = "Stuttgart" },
+    @{ Name = "IT"; Count = 7; Titles = @("IT Administrator", "IT Support Specialist", "System Administrator", "Network Administrator", "Cloud Administrator", "IT Technician", "IT Team Lead"); Office = "Stuttgart" },
+    @{ Name = "HR"; Count = 5; Titles = @("HR Manager", "HR Assistant", "Recruiter", "HR Specialist", "HR Coordinator"); Office = "Stuttgart" },
+    @{ Name = "Finance"; Count = 6; Titles = @("Finance Manager", "Accountant", "Payroll Specialist", "Financial Analyst", "Accounts Payable Clerk", "Accounts Receivable Clerk"); Office = "Ludwigsburg" },
+    @{ Name = "Sales"; Count = 10; Titles = @("Sales Manager", "Sales Representative", "Account Manager", "Sales Coordinator", "Business Development Specialist", "Key Account Manager", "Sales Representative", "Sales Representative", "Sales Assistant", "Sales Team Lead"); Office = "Stuttgart" },
+    @{ Name = "Marketing"; Count = 5; Titles = @("Marketing Manager", "Marketing Specialist", "Content Creator", "SEO Specialist", "Graphic Designer"); Office = "Stuttgart" },
+    @{ Name = "Operations"; Count = 9; Titles = @("Operations Manager", "Operations Coordinator", "Logistics Specialist", "Warehouse Coordinator", "Process Analyst", "Procurement Specialist", "Facilities Coordinator", "Operations Assistant", "Operations Team Lead"); Office = "Ludwigsburg" },
+    @{ Name = "Customer Support"; Count = 5; Titles = @("Support Team Lead", "Customer Support Agent", "Customer Support Agent", "Technical Support Agent", "Customer Support Specialist"); Office = "Stuttgart" }
+)
+
+$FirstNames = @(
+    "Anna","Markus","Peter","Sara","Michael","Laura","Thomas","Julia","Daniel","Sophie",
+    "David","Emma","Alexander","Lena","Paul","Mia","Andreas","Lisa","Stefan","Nina",
+    "Jan","Clara","Martin","Lea","Christian","Sarah","Tobias","Marie","Felix","Hannah",
+    "Benjamin","Katharina","Jonas","Amelie","Florian","Isabella","Simon","Elena","Patrick","Johanna",
+    "Maximilian","Luisa","Philipp","Charlotte","Niklas","Emily","Robert","Melanie","Tim","Victoria"
+)
+
+$LastNames = @(
+    "Mueller","Schneider","Weber","Fischer","Meyer","Wagner","Becker","Schulz","Hoffmann","Schaefer",
+    "Koch","Bauer","Richter","Klein","Wolf","Schroeder","Neumann","Schwarz","Zimmermann","Braun",
+    "Krueger","Hofmann","Hartmann","Lange","Schmitt","Werner","Schmitz","Krause","Meier","Lehmann",
+    "Schmid","Schulze","Maier","Koehler","Herrmann","Koenig","Walter","Mayer","Huber","Kaiser",
+    "Fuchs","Peters","Lang","Scholz","Moeller","Weiss","Jung","Hahn","Keller","Vogel"
+)
+
+$Employees = @()
+$Index = 0
+
+foreach ($Department in $Departments) {
+    for ($i = 0; $i -lt $Department.Count; $i++) {
+        $First = $FirstNames[$Index]
+        $Last = $LastNames[$Index]
+        $Username = ("{0}.{1}" -f $First, $Last).ToLower()
+
+        $Employees += [PSCustomObject]@{
+            FirstName  = $First
+            LastName   = $Last
+            Username   = $Username
+            Department = $Department.Name
+            Title      = $Department.Titles[$i]
+            Office     = $Department.Office
+            Phone      = "+497115550{0:D3}" -f ($Index + 100)
+            Email      = "$Username@ad.techoffice.test"
+        }
+
+        $Index++
+    }
+}
+
+$Employees | Export-Csv "C:\Scripts\Employees-50.csv" -NoTypeInformation -Encoding UTF8
+
+Write-Host "CSV created: C:\Scripts\Employees-50.csv" -ForegroundColor Green
+Write-Host "Total employees in file: $($Employees.Count)"
+$Employees | Format-Table FirstName, LastName, Username, Department, Title -AutoSize

@@ -88,17 +88,13 @@ The CSV contained the following columns:
 
 The CSV format allows employee information to be processed consistently without entering every account manually.
 
-**Screenshot evidence:** Insert the screenshot showing the CSV file and its column headings.
-
 #### Step 2: Prepare the bulk provisioning script
 
 A PowerShell script was created to import the employee records and process them automatically.
 The script used the Active Directory module and targeted the following OU:
-
 ```text
 OU=Users,OU=Company,DC=ad,DC=techoffice,DC=test
 ```
-
 The script was designed to:
 
 - Import the employee records from the CSV file.
@@ -110,7 +106,7 @@ The script was designed to:
 - Require a password change at the next logon.
 - Export provisioning results to a CSV report.
 
-**Screenshot evidence:** Insert the screenshot showing the bulk provisioning PowerShell script.
+![Windows Server Active Directory Lab Architecture](../Images/Screenshot-25.png)
 
 **Script file:** Link to the actual bulk provisioning `.ps1` file in the repository.
 
@@ -180,18 +176,14 @@ The final number of users in the OU may be different if additional accounts were
 
 ### 8. Technical Explanation
 
-### Why use PowerShell for user provisioning?
+#### Why use PowerShell for user provisioning?
 PowerShell allows administrators to automate repetitive tasks, process structured data, and apply consistent account settings.
-
 #### Why use a CSV file?
 CSV files provide a simple way to import structured employee information from spreadsheets or other systems.
-
 #### Why check for existing accounts?
 A pre-creation check helps prevent duplicate usernames and makes scripts safer to run when some accounts already exist.
-
 #### Why export a results report?
 A results report supports troubleshooting, auditing, and reconciliation between the source employee list and the directory.
-
 #### Why separate scripts from documentation?
 Keeping `.ps1` files in the repository allows reviewers to inspect the actual implementation. The Markdown document explains the purpose, execution process, and verification without requiring readers to extract code from screenshots.
 
