@@ -92,8 +92,8 @@ The `docs` directory contains detailed procedures, technical explanations, scree
 | [Part 2 – Active Directory Installation](docs/02-active-directory-installation.md) | AD DS role installation and domain controller promotion |
 | [Part 3 – OU and User Management](docs/03-ou-and-user-management.md) | OU structure and manual user administration |
 | [Part 4 – PowerShell User Provisioning](docs/04-powershell-user-provisioning.md) | Single-user automation and bulk provisioning from CSV |
-| [Part 5 – Active Directory Users and Security Groups](docs/Part-5-Active-Directory-Users-and-Security-Groups.md) | Department-based security groups, user membership audits, Windows 11 domain join, and domain sign-in troubleshooting |
-| [Part 6 – File Server and Access Permissions](docs/Part-6-File-Server-and-Access-Permissions.md) | NTFS and SMB share permissions, department-based file access, access-control testing, and troubleshooting |
+| [Part 5 – Active Directory Users and Security Groups](docs/05-Active-Directory-Users-and-Security-Groups.md) | Department-based security groups, user membership audits, Windows 11 domain join, and domain sign-in troubleshooting |
+| [Part 6 – File Server and Access Permissions](docs/06-File-Server-and-Access-Permissions.md) | NTFS and SMB share permissions, department-based file access, access-control testing, and troubleshooting |
 
 ## Repository Structure
 
