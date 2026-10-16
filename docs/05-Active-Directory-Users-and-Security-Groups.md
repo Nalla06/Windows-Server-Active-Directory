@@ -1,6 +1,6 @@
 ## Active Directory Users, Security Groups and Windows 11 Domain Join
 
-### 5.1 Objective
+#### 5.1 Objective
 
 The objective of this part was to configure user accounts and department security groups in Active Directory, connect a Windows 11 client to the domain, and verify domain-user authentication.
 
@@ -19,7 +19,7 @@ The main tasks were:
 - Verify domain-controller discovery and domain-user sign-in.
 - Record the issues encountered, troubleshooting performed, and solutions applied.
 
-### 5.2 Lab Environment
+#### 5.2 Lab Environment
 
 | Component | Configuration |
 |---|---|
@@ -38,7 +38,7 @@ The server and client operate as separate virtual machines connected through the
 
 The domain controller provides Active Directory Domain Services (AD DS) and DNS for the lab domain.
 
-### 5.3 Active Directory Organisational Structure
+#### 5.3 Active Directory Organisational Structure
 
 The Active Directory domain was organised into company-related organisational units (OUs).
 
@@ -59,7 +59,7 @@ The Computers and Servers OUs provide a structure for organising computer accoun
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-26.png)
 
-### 5.4 Department Security Groups
+#### 5.4 Department Security Groups
 
 Global Security groups were created to represent the departments in the simulated company.
 
@@ -75,7 +75,7 @@ Global Security groups were created to represent the departments in the simulate
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-27.png)
 
-### Why security groups are used
+##### Why security groups are used
 
 Security groups make permission management easier than assigning permissions separately to every employee.
 
@@ -85,7 +85,7 @@ When employees join, leave, or change departments, administrators can update gro
 
 **Important:** creating a group does not automatically grant access to a folder or application. The group must be granted the appropriate permissions on the resource.
 
-### 5.5 User Accounts and Department Assignments
+#### 5.5 User Accounts and Department Assignments
 
 Employee user accounts were created in Active Directory and organised under the Users OU.
 
@@ -112,7 +112,7 @@ This is important because a user account can have the correct Department attribu
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-29.png)
 
-### 5.6 Group Membership Verification and Audit
+#### 5.6 Group Membership Verification and Audit
 
 Group membership was reviewed to verify that employee accounts were associated with the intended department groups.
 
@@ -156,7 +156,7 @@ A user who is not a member of their expected department group does not necessari
 
 The actual effective access must be tested on the relevant resource.
 
-### 5.7 Windows 11 Client Domain Join
+#### 5.7 Windows 11 Client Domain Join
 
 #### Objective
 
@@ -198,7 +198,7 @@ This confirmed that the lab had progressed beyond creating user accounts on the 
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-36.png)
 
-### 5.8 Troubleshooting Record
+#### 5.8 Troubleshooting Record
 
 This section records the issues encountered during the lab, their technical meaning, the troubleshooting approach, and the outcome.
 
@@ -311,7 +311,7 @@ When department folders and permissions are configured, test access using these 
 
 User attributes, group membership, and effective resource permissions are different concepts. All three must be considered when investigating access-control behaviour.
 
-### 5.9 Security and Access-Control Concept
+#### 5.9 Security and Access-Control Concept
 
 The lab establishes the foundation for department-based access control.
 The intended design is to grant permissions to department security groups and manage employee access through membership.
@@ -326,7 +326,7 @@ For example:
 The actual permissions will be configured and validated in a later part of the project.
 A group name or membership alone does not prove that a user has or lacks access. Resource permissions and effective access must be tested.
 
-## 5.10 Verification Summary
+#### 5.10 Verification Summary
 
 | Verification item | Result |
 |---|---|
@@ -342,7 +342,7 @@ A group name or membership alone does not prove that a user has or lacks access.
 | Group Policy application tested | Outstanding |
 | Effective access for the two intentionally unassigned users tested | Outstanding |
 
-## 5.11 Skills Practised
+#### 5.11 Skills Practised
 
 This part provided practical experience with:
 
@@ -356,7 +356,7 @@ This part provided practical experience with:
 - Investigating a password-change issue.
 - Documenting intentional test conditions and unresolved issues.
 
-## 5.12 Conclusion
+#### 5.12 Conclusion
 
 This part established the Active Directory user and security group structure for the TechOffice GmbH lab environment. Department-based security groups were created, user attributes and group memberships were reviewed, and a Windows 11 client was successfully joined to the domain. Domain user sign-in was also tested, and troubleshooting steps were documented.
 
