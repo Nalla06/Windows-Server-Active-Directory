@@ -26,6 +26,7 @@ A domain controller is a Windows Server that hosts Active Directory Domain Servi
 DNS is also essential because domain-joined computers use DNS records to locate domain controllers and other Active Directory services.
 
 #### 4. Installation and Configuration Procedure
+
 ##### Step 1: Open Server Manager
 
 Server Manager was used to manage Windows Server roles and features.

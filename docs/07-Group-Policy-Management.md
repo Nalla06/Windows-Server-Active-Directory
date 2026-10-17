@@ -1,12 +1,12 @@
 ## Group Policy Management and User Restrictions
 
-### 1. Project Overview
+#### 1. Project Overview
 
 This part of the TechOffice GmbH Windows Server administration lab demonstrates how to create, link, configure, apply, and verify Group Policy Objects (GPOs) in an Active Directory domain.
 
 The first half focuses on applying user restrictions through a GPO linked to the Company organizational unit (OU). The second half will extend the lab by targeting selected users through security groups and Group Policy security filtering.
 
-### 2. Lab Environment
+#### 2. Lab Environment
 
 | Component | Configuration |
 |---|---|
@@ -28,7 +28,7 @@ The first half focuses on applying user restrictions through a GPO linked to the
 | Targeted GPO exercise | Planned — Security Filtering for selected users |
 
 
-### 3. Objectives
+#### 3. Objectives
 
 Create and link a Group Policy Object to an organizational unit.
 Configure user-specific administrative template policies.
@@ -38,9 +38,9 @@ Test the configured restrictions with a domain user account.
 Understand the difference between OU-based GPO linking and security filtering.
 Prepare a separate exercise for applying policies to selected users across departments.
 
-### 4. GPO Creation and Configuration
+#### 4. GPO Creation and Configuration
 
-#### 4.1 Create the GPO
+##### 4.1 Create the GPO
 
 The GPO GPO-TechOffice-User-Baseline was created through Group Policy Management on SRV-DC01 and linked to the Company OU.
 The GPO link was verified as enabled. The GPO status was also confirmed as enabled, and Authenticated Users was present in Security Filtering.
@@ -50,7 +50,7 @@ Because the GPO is linked to the parent Company OU, its applicable user settings
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-49.png)
 
-#### 4.2 Configure the desktop background restriction
+##### 4.2 Configure the desktop background restriction
 
 The following user policy was configured:
 
@@ -62,7 +62,7 @@ This setting restricts users covered by the GPO from changing their desktop back
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-51.png)
 
-#### 4.3 Configure the Control Panel and Settings restriction
+##### 4.3 Configure the Control Panel and Settings restriction
 
 The following user policy was also configured:
 Policy: Prohibit access to Control Panel and PC settings
@@ -72,9 +72,9 @@ Both policies were configured under User Configuration, because the intention wa
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-54.png)
 
-### 5. Applying and Verifying Group Policy
+#### 5. Applying and Verifying Group Policy
 
-#### 5.1 Refresh user policy
+##### 5.1 Refresh user policy
 
 On the Windows 11 client, signed in with Julia Schulz's domain account, the following command was used:
 gpupdate /target:user /force
@@ -82,7 +82,7 @@ The user policy update completed successfully.
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-55.png)
 
-#### 5.2 Verify the applied GPO
+##### 5.2 Verify the applied GPO
 
 The following command was used to inspect the resulting policy information:
 gpresult /r
@@ -95,9 +95,9 @@ This confirmed that the GPO was being applied to Julia's user account.
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-52.png)
 
-### 6. Functional Testing
+#### 6. Functional Testing
 
-##### Test 1 — Desktop background restriction
+###### Test 1 — Desktop background restriction
 
 Procedure: Signed in as Julia and opened the Windows personalization settings.
 Expected result: Julia should not be able to change the desktop background through the normal personalization interface.
@@ -106,7 +106,7 @@ Status: Passed
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-53.png)
 
-##### Test 2 — Control Panel and Settings restriction
+###### Test 2 — Control Panel and Settings restriction
 
 Procedure: Attempted to access Control Panel and Windows Settings while signed in as Julia.
 Expected result: Access should be restricted by the configured user policy.
@@ -115,7 +115,7 @@ Status: Passed
 
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-56.png)
 
-### 7. Understanding GPO Scope
+#### 7. Understanding GPO Scope
 
 The GPO is linked to the Company OU and has Authenticated Users in Security Filtering. Therefore, its user settings are not intended for Julia alone. They can apply to other in-scope user accounts under the Company OU as well.
 The scope of a GPO is influenced by its link location, inheritance, security filtering, permissions, and any applicable policy-processing settings.
