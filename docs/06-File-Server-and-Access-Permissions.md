@@ -131,3 +131,5 @@ The Marketing user successfully created a file after the share permissions were 
 These tests provide practical evidence of Windows Server file-sharing configuration, permission troubleshooting, and access-control verification.
 
 **Scope note:** The tests verified file creation and read access for the Marketing user, and a denied file-creation attempt for Julia. They did not establish that Julia was unable to read the share or prove that every other domain user was blocked from writing.
+
+The next step after Part 6 is to configure and test Group Policy (GPO) and department-based access to company resources.
