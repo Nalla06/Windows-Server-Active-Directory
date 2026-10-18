@@ -81,6 +81,12 @@ The objective is to practise common IT administration tasks, verify configuratio
 - Tested restricted write access using Julia Schulz's IT account.
 - Documented permission inheritance, troubleshooting steps, and access-control test results.
 
+### Part 7 – Group Policy Management and Security Filtering
+
+- 7A – Baseline User Restrictions: Configure and test user restrictions using a baseline Group Policy Object (GPO).
+- 7B – Targeted Group Policy Deployment: Apply additional user restrictions through Active Directory security groups and GPO security filtering.
+- 7C – Non-Member Verification: Compare policy results for a group member and a non-member using gpupdate and gpresult.
+
 
 ## Documentation and Runbooks
 
@@ -94,6 +100,7 @@ The `docs` directory contains detailed procedures, technical explanations, scree
 | [Part 4 – PowerShell User Provisioning](docs/04-powershell-user-provisioning.md) | Single-user automation and bulk provisioning from CSV |
 | [Part 5 – Active Directory Users and Security Groups](docs/05-Active-Directory-Users-and-Security-Groups.md) | Department-based security groups, user membership audits, Windows 11 domain join, and domain sign-in troubleshooting |
 | [Part 6 – File Server and Access Permissions](docs/06-File-Server-and-Access-Permissions.md) | NTFS and SMB share permissions, department-based file access, access-control testing, and troubleshooting |
+| | [Part 7 – Group Policy Management and Security Filtering](docs/Part-7-Group-Policy-Management.md) | Baseline user restrictions, targeted GPO deployment, security group filtering, and non-member verification |
 
 ## Repository Structure
 
@@ -109,7 +116,7 @@ Windows-Server-Active-Directory/
 │   ├── 04-powershell-user-provisioning.md
 │   ├── 05-Active Directory Users, Security Groups and Windows 11 Domain Join.md
 │   ├── 06-File Server and Access Permissions.md
-│   ├── 07-group-policy.md
+│   ├── 07-Group Policy Management and Security Filtering.md
 │   ├── 08-file-server-permissions.md
 │   ├── 09-dns-dhcp.md
 │   ├── 10-monitoring-troubleshooting.md

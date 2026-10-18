@@ -288,8 +288,6 @@ DNS discovery and user authentication are separate stages. A client can successf
 
 ---
 
-
-
 ###### Case 4 — Two users were missing from their expected department groups
 
 **Observed problem**

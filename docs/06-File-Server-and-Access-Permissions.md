@@ -57,7 +57,6 @@ The network share permissions were configured as follows:
 | Everyone | Read |
 | Administrators | Full control |
 
-
 ![Windows Server Active Directory Lab Architecture](../Images/Screenshot-45.png)
 
 Share permissions and NTFS permissions work together. A network user's effective access is limited by both permission layers.
