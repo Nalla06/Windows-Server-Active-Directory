@@ -255,6 +255,9 @@ This comparison demonstrates the difference between a GPO's OU-based scope and i
 
 Johanna received GPO-TechOffice-User-Baseline because the GPO was linked to the Company OU, and her user account was located within that OU's hierarchy.
 The OU structure was:
+
+```text
+
 ad.techoffice.test
 └── Company
     ├── Users
@@ -263,6 +266,7 @@ ad.techoffice.test
     ├── Computers
     ├── Groups
     └── Servers
+```
 
 The baseline GPO used Authenticated Users for Security Filtering. Johanna was an eligible authenticated user, and the policy was within her OU-based scope.
 
