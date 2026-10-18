@@ -319,3 +319,4 @@ The Settings restriction was consistent with the baseline GPO. It was not eviden
 
 Result: Johanna received the baseline GPO but did not receive the targeted restricted-user GPO.
 
+The next step is to continue with shared folder management and access permissions, focusing on how administrators configure file shares, assign permissions to Active Directory security groups, and control access to company data.
