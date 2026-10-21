@@ -104,7 +104,7 @@ The `docs` directory contains detailed procedures, technical explanations, scree
 | [Part 4 — PowerShell User Provisioning](docs/04-powershell-user-provisioning.md) | User automation and bulk provisioning from CSV |
 | [Part 5 — Active Directory Users and Security Groups](docs/05-Active-Directory-Users-and-Security-Groups.md) | Security groups, group membership, domain join, and sign-in troubleshooting |
 | [Part 6 — File Server and Access Permissions](docs/06-File-Server-and-Access-Permissions.md) | SMB and NTFS permissions, access-control testing, and troubleshooting |
-| [Part 7 — Group Policy Management and Security Filtering](docs/Part-7-Group-Policy-Management.md) | Baseline GPOs, targeted policies, security filtering, and non-member verification |
+| [Part 7 — Group Policy Management and Security Filtering](docs/07-Group-Policy-Management.md) | Baseline GPOs, targeted policies, security filtering, and non-member verification |
 | [Part-8.1 — Department File Sharing](docs/Part-8.1-Department-File-Sharing.md) | Finance and HR folder permissions |
 | [Part-8.2 — Confidential File Access](docs/Part-8.2-Confidential-File-Access.md) | Restricted access to confidential Finance data |
 | [Part-8.3 — Personal Restricted Folder](docs/Part-8.3-Personal-Restricted-Folder.md) | Employee-specific folder permissions |
