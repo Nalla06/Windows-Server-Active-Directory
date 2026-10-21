@@ -67,7 +67,7 @@ The objective is to practise realistic IT administration tasks, verify configura
 - Tested domain-user sign-in and documented a password-change workaround.
 - Recorded troubleshooting cases, verification results, and lessons learned.
 
-##### Part 6 — File Server and Access Permissions
+##### 6. File Server and Access Permissions
 
 - Created and shared the C:\Marketing folder on Windows Server 2025.
 - Configured NTFS permissions for the GG-Marketing security group.
@@ -78,13 +78,13 @@ The objective is to practise realistic IT administration tasks, verify configura
 - Tested restricted write access using Julia Schulz's IT account.
 - Documented permission inheritance, troubleshooting steps, and access-control test results.
 
-##### Part 7 – Group Policy Management and Security Filtering
+##### 7. Group Policy Management and Security Filtering
 
 - 7A – Baseline User Restrictions: Configure and test user restrictions using a baseline Group Policy Object (GPO).
 - 7B – Targeted Group Policy Deployment: Apply additional user restrictions through Active Directory security groups and GPO security filtering.
 - 7C – Non-Member Verification: Compare policy results for a group member and a non-member using gpupdate and gpresult.
 
-### Part 8 — File Server Administration and NTFS Permissions
+##### 8. File Server Administration and NTFS Permissions
 
 - **Part 8.1 — Department File Sharing:** Configured Finance and HR folders with group-based permissions and tested departmental access.
 - **Part 8.2 — Confidential File Access:** Restricted the Finance confidential folder to members of `GG-Finance-Confidential` and tested authorised and unauthorised access.
