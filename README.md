@@ -105,11 +105,11 @@ The `docs` directory contains detailed procedures, technical explanations, scree
 | [Part 5 — Active Directory Users and Security Groups](docs/05-Active-Directory-Users-and-Security-Groups.md) | Security groups, group membership, domain join, and sign-in troubleshooting |
 | [Part 6 — File Server and Access Permissions](docs/06-File-Server-and-Access-Permissions.md) | SMB and NTFS permissions, access-control testing, and troubleshooting |
 | [Part 7 — Group Policy Management and Security Filtering](docs/Part-7-Group-Policy-Management.md) | Baseline GPOs, targeted policies, security filtering, and non-member verification |
-| [Part-8.1 — Department File Sharing](Part-08.1-Department-File-Sharing.md) | Finance and HR folder permissions |
-| [Part-8.2 — Confidential File Access](Part-08.2-Confidential-File-Access.md) | Restricted access to confidential Finance data |
-| [Part-8.3 — Personal Restricted Folder](Part-08.3-Personal-Restricted-Folder.md) | Employee-specific folder permissions |
-| [Part-8.4 — Public and Controlled-Write Folders](Part-08.4-Public-Controlled-Write.md) | Read-only access and controlled publishing |
-| [Part-8.5 — Troubleshooting and Final Validation](Part-08.5-Troubleshooting-and-Validation.md) | Permission checks, troubleshooting, and final validation |
+| [Part-8.1 — Department File Sharing](Part-8.1-Department-File-Sharing.md) | Finance and HR folder permissions |
+| [Part-8.2 — Confidential File Access](Part-8.2-Confidential-File-Access.md) | Restricted access to confidential Finance data |
+| [Part-8.3 — Personal Restricted Folder](Part-8.3-Personal-Restricted-Folder.md) | Employee-specific folder permissions |
+| [Part-8.4 — Public and Controlled-Write Folders](Part-8.4-Public-Controlled-Write.md) | Read-only access and controlled publishing |
+| [Part-8.5 — Troubleshooting and Final Validation](Part-8.5-Troubleshooting-and-Validation.md) | Permission checks, troubleshooting, and final validation |
 
 ## Repository Structure
 
